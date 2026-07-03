@@ -1,12 +1,12 @@
 /* Premium Dashboard Design Tokens */
 :root {
-  --dash-bg: #090b11;
-  --dash-card-bg: rgba(17, 22, 37, 0.6);
-  --dash-border: rgba(255, 255, 255, 0.06);
-  --dash-accent: #00fa9a; /* Spring Green */
-  --dash-accent-glow: rgba(0, 250, 154, 0.15);
-  --dash-text-primary: #f8fafc;
-  --dash-text-secondary: #94a3b8;
+  --dash-bg: #f8fafc;
+  --dash-card-bg: rgba(255, 255, 255, 0.85);
+  --dash-border: rgba(15, 23, 42, 0.08);
+  --dash-accent: #10b981; /* Emerald Green */
+  --dash-accent-glow: rgba(16, 185, 129, 0.15);
+  --dash-text-primary: #1e293b;
+  --dash-text-secondary: #64748b;
   --dash-usdc: #2775ca;
   --dash-xlm: #08b5e5;
   --font-dash: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -27,7 +27,7 @@
 .loader {
   width: 48px;
   height: 48px;
-  border: 4px solid rgba(255, 255, 255, 0.1);
+  border: 4px solid rgba(15, 23, 42, 0.1);
   border-left-color: var(--dash-accent);
   border-radius: 50%;
   animation: spin 1s linear infinite;
@@ -87,7 +87,7 @@
 /* SIDEBAR */
 .dashboard-sidebar {
   width: 260px;
-  background: rgba(10, 13, 22, 0.95);
+  background: rgba(255, 255, 255, 0.95);
   border-right: 1px solid var(--dash-border);
   display: flex;
   flex-direction: column;
@@ -112,8 +112,8 @@
   justify-content: center;
   font-weight: 800;
   font-size: 20px;
-  color: #000;
-  box-shadow: 0 0 15px rgba(0, 250, 154, 0.3);
+  color: #fff;
+  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
 }
 
 .dashboard-sidebar .logo-text {
@@ -143,12 +143,12 @@
 
 .nav-item:hover, .nav-item.active {
   color: var(--dash-text-primary);
-  background: rgba(255, 255, 255, 0.04);
+  background: rgba(15, 23, 42, 0.04);
 }
 
 .nav-item.active {
   border-left: 3px solid var(--dash-accent);
-  background: rgba(0, 250, 154, 0.05);
+  background: rgba(16, 185, 129, 0.08);
 }
 
 .sidebar-footer {
@@ -204,9 +204,9 @@
 }
 
 .network-badge {
-  background: rgba(0, 250, 154, 0.08);
+  background: rgba(16, 185, 129, 0.08);
   color: var(--dash-accent);
-  border: 1px solid rgba(0, 250, 154, 0.15);
+  border: 1px solid rgba(16, 185, 129, 0.15);
   padding: 8px 18px;
   border-radius: 99px;
   font-weight: 600;
@@ -230,14 +230,14 @@
 }
 
 .balance-hero-card {
-  background: radial-gradient(circle at 100% 0%, rgba(0, 250, 154, 0.08) 0%, transparent 60%), var(--dash-card-bg);
+  background: radial-gradient(circle at 100% 0%, rgba(16, 185, 129, 0.08) 0%, transparent 60%), var(--dash-card-bg);
   border: 1px solid var(--dash-border);
   padding: 35px;
   border-radius: 24px;
   backdrop-filter: blur(15px);
   position: relative;
   overflow: hidden;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 32px rgba(15, 23, 42, 0.05);
 }
 
 .balance-hero-card h3 {
@@ -299,7 +299,7 @@
 
 .asset-card:hover {
   transform: translateY(-3px);
-  border-color: rgba(255, 255, 255, 0.12);
+  border-color: rgba(15, 23, 42, 0.12);
 }
 
 .asset-header {
@@ -408,7 +408,7 @@
 }
 
 .key-display {
-  background: rgba(10, 13, 22, 0.5);
+  background: rgba(241, 245, 249, 0.8);
   border: 1px solid var(--dash-border);
   padding: 12px 16px;
   border-radius: 10px;
@@ -423,7 +423,7 @@
 
 .key-display-copy {
   display: flex;
-  background: rgba(10, 13, 22, 0.5);
+  background: rgba(241, 245, 249, 0.8);
   border: 1px solid var(--dash-border);
   border-radius: 10px;
   overflow: hidden;
@@ -441,7 +441,7 @@
 }
 
 .copy-btn {
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(15, 23, 42, 0.05);
   border: none;
   border-left: 1px solid var(--dash-border);
   color: var(--dash-text-primary);
@@ -454,7 +454,7 @@
 }
 
 .copy-btn:hover {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(15, 23, 42, 0.1);
   color: var(--dash-accent);
 }
 
@@ -472,7 +472,7 @@
   display: flex;
   align-items: center;
   gap: 15px;
-  background: rgba(255, 255, 255, 0.02);
+  background: rgba(15, 23, 42, 0.02);
   padding: 12px 16px;
   border-radius: 12px;
   border: 1px solid var(--dash-border);
@@ -480,8 +480,8 @@
 }
 
 .contact-item:hover {
-  border-color: rgba(255, 255, 255, 0.08);
-  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(15, 23, 42, 0.08);
+  background: rgba(15, 23, 42, 0.04);
 }
 
 .contact-avatar {
@@ -494,7 +494,7 @@
   justify-content: center;
   font-weight: 800;
   font-size: 14px;
-  color: #000;
+  color: #fff;
 }
 
 .contact-details h4 {

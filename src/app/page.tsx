@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import PixelBlast from './PixelBlast';
 import './landing.css';
@@ -117,19 +117,6 @@ export default function LandingPage() {
         });
     });
 
-    // 4. Navbar Scroll Blur Effect
-    const navbar = document.querySelector(".navbar") as HTMLElement;
-    const handleScroll = () => {
-        if (window.scrollY > 50) {
-            navbar.style.background = "rgba(12, 13, 16, 0.8)";
-            navbar.style.boxShadow = "0 4px 30px rgba(0, 0, 0, 0.5)";
-        } else {
-            navbar.style.background = "transparent";
-            navbar.style.boxShadow = "none";
-        }
-    };
-    window.addEventListener("scroll", handleScroll);
-
     // Magnetic Buttons
     const magneticWraps = document.querySelectorAll(".magnetic-wrap");
     magneticWraps.forEach(wrap => {
@@ -145,10 +132,18 @@ export default function LandingPage() {
         });
     });
 
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
+    return () => {};
   }, { scope: containerRef });
+
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   // PixelBlast is now loaded via React component
 
@@ -192,7 +187,7 @@ export default function LandingPage() {
       <div className="hero-orb hero-orb-2"></div>
       <div className="hero-grid-overlay"></div>
 
-      <nav className="navbar glass">
+      <nav className={`navbar glass ${scrolled ? 'scrolled' : ''}`}>
           <Link href="/" className="logo" style={{ textDecoration: 'none' }}>
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="url(#paint0_linear)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
@@ -200,16 +195,16 @@ export default function LandingPage() {
                   <path d="M2 12L12 17L22 12" stroke="url(#paint2_linear)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                   <defs>
                       <linearGradient id="paint0_linear" x1="2" y1="2" x2="22" y2="22" gradientUnits="userSpaceOnUse">
-                          <stop stopColor="#81C784"/>
-                          <stop offset="1" stopColor="#173F35"/>
+                          <stop stopColor="#10B981"/>
+                          <stop offset="1" stopColor="#059669"/>
                       </linearGradient>
                       <linearGradient id="paint1_linear" x1="2" y1="2" x2="22" y2="22" gradientUnits="userSpaceOnUse">
-                          <stop stopColor="#81C784"/>
-                          <stop offset="1" stopColor="#2E7D32"/>
+                          <stop stopColor="#10B981"/>
+                          <stop offset="1" stopColor="#059669"/>
                       </linearGradient>
                       <linearGradient id="paint2_linear" x1="2" y1="2" x2="22" y2="22" gradientUnits="userSpaceOnUse">
-                          <stop stopColor="#81C784"/>
-                          <stop offset="1" stopColor="#173F35"/>
+                          <stop stopColor="#10B981"/>
+                          <stop offset="1" stopColor="#059669"/>
                       </linearGradient>
                   </defs>
               </svg>
@@ -219,7 +214,7 @@ export default function LandingPage() {
               <a href="#products" className="nav-text-link">Products</a>
               <Link href="/roadmap" className="nav-text-link">Roadmap</Link>
               <div className="magnetic-wrap">
-                  <Link href="/login" className="nav-btn glass-btn" style={{ background: 'rgba(129, 199, 132, 0.1)', borderColor: 'rgba(129, 199, 132, 0.3)', color: '#81C784' }}>Login to Dashboard</Link>
+                  <Link href="/login" className="nav-btn glass-btn">Login to Dashboard</Link>
               </div>
               <div className="magnetic-wrap">
                   <a href="#connect" className="nav-btn glass-btn">Connect WhatsApp</a>
@@ -231,7 +226,7 @@ export default function LandingPage() {
           <div className="hero-badge-wrap">
               <div className="badge glass">💬 Web3 on WhatsApp</div>
           </div>
-          <h1 className="hero-title">Send, Receive, Deploy on <br/><span className="text-gradient" style={{ background: 'linear-gradient(90deg, #81C784 0%, #2E7D32 100%)', WebkitBackgroundClip: 'text', backgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>WhatsApp</span></h1>
+          <h1 className="hero-title">Send, Receive, Deploy on <br/><span className="text-gradient" style={{ background: 'linear-gradient(90deg, var(--accent-1) 0%, var(--accent-3) 100%)', WebkitBackgroundClip: 'text', backgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>WhatsApp</span></h1>
           
           {/* Phone Mockup Visual */}
           <div className="phone-container">
